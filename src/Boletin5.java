@@ -6,7 +6,6 @@ import java.util.Scanner;
  * @author Borja de Saa
  * @version 1.1
  */
-
 public class Boletin5 {
     public static void main(String[] args) {
         Scanner Boletin5 = new Scanner(System.in);
