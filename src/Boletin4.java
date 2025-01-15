@@ -6,8 +6,6 @@ import java.util.Scanner;
  * @author Borja de Saa
  */
 
-
-
 public class Boletin4 {
     public static void main(String[] args) {
 
