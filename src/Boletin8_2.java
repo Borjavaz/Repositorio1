@@ -4,7 +4,9 @@ public class Boletin8_2 {
     public static void main(String[] args) {
         System.out.println("Ejercicio 10");
         Ejercicio10();
+        System.out.println("Ejercicio 11");
         Ejercicio11();
+        System.out.println("Ejercicio 12");
         Ejercicio12();
     }
 
@@ -61,35 +63,67 @@ public class Boletin8_2 {
         }
         return false;
     }
-    public static void Ejercicio11(){
+    public static void Ejercicio11() {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Introduce tu nombre y tu apellido:");
-        String nombreYapellido=scanner.nextLine();
-        nombreYapellido = corregir(nombreYapellido);
-        System.out.println("El nombre y apellido sin espacios y en mayusculas es: " + nombreYapellido);
+        System.out.println("Introduzca el nombre:");
+        String nombre = scanner.nextLine();
+        System.out.println("Introduzca el apellido:");
+        String apellido = scanner.nextLine();
+
+        String nomFormateado = formatear(nombre, apellido);
+        System.out.println("Nombre formateado: " + nomFormateado);
     }
-    public static String corregir(String nombreYapellido){
-        return nombreYapellido.toUpperCase().replace(" ","");
+
+    public static String formatear(String nombre, String apellido) {
+        nombre = primeraMayuscula(nombre.replace(" ", ""));
+        apellido = primeraMayuscula(apellido.replace(" ", ""));
+        return nombre + " " + apellido;
+    }
+
+    public static String primeraMayuscula(String texto) {
+        if (texto == null || texto.isEmpty()) {
+            return "";
+        }
+        return texto.substring(0, 1).toUpperCase() + texto.substring(1).toLowerCase();
     }
     public static void Ejercicio12(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce el texto que quieras analizar: ");
         String texto = scanner.nextLine();
-        contarPalabras(texto);
-        System.out.println("El texto tiene ");
+
+        int numeroDePalabras = contarPalabras(texto);
+        int numeroDeCaracteres = contarCaracteres(texto);
+        String palabraMasLarga = encontrarPalabraLarga(texto);
+
+        System.out.println("El número de palabras es: " + numeroDePalabras);
+        System.out.println("El numero de caracteres es: " + numeroDeCaracteres);
+        System.out.println("La palabra más larga es: " + palabraMasLarga);
 
     }
-    public static void contarPalabras (String texto){
-        int cantidadDeEspacios=0;
-        for (int i =0; i<texto.length();i++){
-            if (texto.charAt(i) == ' ') cantidadDeEspacios++;
+    public static int contarPalabras(String texto) {
+            if (texto == null || texto.isEmpty()) {
+                return 0;
+            }
+            String[] palabras = texto.trim().split("\\s+");
+            return palabras.length;
         }
+    public static int contarCaracteres(String texto){
+        if (texto == null || texto.isEmpty()) {
+            return 0;
+        }
+        return texto.length();
     }
-    public static void contarCaracteres(String texto){
-
+    public static String encontrarPalabraLarga(String texto){
+        String[] palabras = texto.trim().split("\\s+");
+        int contador = palabras.length;
+        String palabralarga= "";
+        for (int i =0; i<contador;i++){
+            if(palabras[i].length()>palabralarga.length()){
+                palabralarga=palabras[i];
+            }
+        }
+        return palabralarga;
     }
-    /*public static String palabraMasLarga(String texto){
 
-    }*/
 }
 
