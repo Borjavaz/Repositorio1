@@ -30,7 +30,7 @@ public class Ahorcado {
                 }
             }
             intentos++;
-        } while (!acerto && intentos < 6);
+        } while (!acerto && intentos < 7);
 
         if (acerto) {
             System.out.println("¡Felicidades! Has adivinado la palabra: " + palabraAdivinar);
