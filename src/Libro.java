@@ -12,9 +12,9 @@ public class Libro {
     public Libro(String tit, String aut, int pax, double prez, int cant){
         titulo=tit;
         autor=aut;
-        numPaginas=pax;
-        prezo=prez;
-        cantidad=cant;
+        setNumPaginas(pax);
+        setPrezo(prez);
+        setCantidad(cant);
     }
     public String getTitulo(){
         return titulo;
@@ -41,12 +41,12 @@ public class Libro {
         if(novaPaxinas>0) numPaginas=novaPaxinas;
         else System.out.println("O numero de paxinas debe ser mayor que");
     }
-    public void setPrezo(int novoPrezo){
-        if(prezo>0) prezo=novoPrezo;
-        else System.out.println("O prezo debe ser mair que cero");
+    public void setPrezo(double novoPrezo){
+        if(novoPrezo>0) prezo=novoPrezo;
+        else System.out.println("O prezo debe ser maior que cero");
     }
     public void setCantidad(int novaCantidade){
-        if(cantidad>0) cantidad=novaCantidade;
+        if(novaCantidade>0) cantidad=novaCantidade;
         else System.out.println("A cantidade non pode ser negativa");
     }
     public boolean venderLibro(int cantidadVenta){
